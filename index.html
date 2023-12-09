@@ -17,7 +17,8 @@
 <div class="menu-icon">&#9776;</div>
 <nav>
 <a href="#" onclick="closeMenu()">Home</a>
-<a href="#" onclick="scrollToSection('Brunei');">Brunei</a>
+<a href="https://github.com/geographyclub/asean">Asean Primer</a>
+<!--<a href="#" onclick="scrollToSection('Brunei');">Brunei</a>-->
 </nav>
 </header>
 
@@ -122,7 +123,7 @@ matchingKeysAndValues.forEach((item) => {
   const remainingParts = itemParts.slice(2).join('.');
   console.log(`  Key: ${item.key}: ${JSON.stringify(item.value)}`);
   if (remainingParts !== 'text') {
-    contentToAppend = `<p style="font-size:12px;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
+    contentToAppend = `<p style="font-size:12px; font-weight:600;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
     div.innerHTML += contentToAppend;
   } else {
     contentToAppend = `<p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
