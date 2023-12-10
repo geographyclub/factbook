@@ -1,6 +1,6 @@
 # factbook
 
-A little json parser and website for the CIA World Factbook found at https://github.com/factbook/factbook.json.
+So far, a little json parser and website for the CIA World Factbook found at https://github.com/factbook/factbook.json.
 
 Scraping  
 ```bash
