@@ -80,7 +80,7 @@ overflow: hidden;
 align-items: flex-start;
 box-sizing: border-box;
 width:100%;
-text-align:center;
+text-align:left;
 }
 
 .flex-column {
@@ -88,13 +88,14 @@ flex: 0 0 50%;
 min-width: 160px;
 box-sizing: border-box;
 overflow: hidden;
-padding: 10px 0 0 0;
+padding: 10px 10px 0 10px;
 }
 
 .flex-column-wide {
 flex: 0 0 100%;
 box-sizing: border-box;
 overflow: hidden;
+text-align:center;
 }
 
 .item {
