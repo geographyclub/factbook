@@ -277,21 +277,3 @@ hr{margin:15px 0 0 0; padding:0; text-align:center;}
 
 .part-1{text-align:center; font-family:'Playfair Display'; font-size: 35px; line-height:1; margin-bottom:10px;}
 .part-2{text-align:center; font-family:'Playfair Display'; font-size: 14px; line-height:1;}
-
-#ticker-container {
-position: fixed;
-top: 50px;
-left: 0;
-overflow: hidden;
-height: 30px;
-width:100%;
-border:0;
-z-index:100;
-color: #333;
-}
-
-#ticker-content {
-white-space: nowrap;
-position: absolute;
-overflow: hidden;
-}
