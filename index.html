@@ -95,11 +95,6 @@ const matchingKeysAndValues = getKeysAndValuesWithSameFirstTwoParts(jsonObject, 
 // Split the random key by '.'
 const keyParts = randomKey.split('.');
 
-console.log(`File: ${jsonFileUrl}`);
-console.log(`Random Property: ${randomKey}`);
-console.log(countryCode);
-console.log(countryName);
-
 // start div
 const div = document.createElement('div');
 resultContainer.appendChild(div);
@@ -116,7 +111,6 @@ counterValue += 1;
 matchingKeysAndValues.forEach((item) => {
   const itemParts = item.key.split('.');
   const remainingParts = itemParts.slice(2).join('.');
-  console.log(`  Key: ${item.key}: ${JSON.stringify(item.value)}`);
   if (remainingParts !== 'text') {
     contentToAppend = `<p style="font-size:12px; font-weight:600; margin-top:5px;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
     div.innerHTML += contentToAppend;

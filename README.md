@@ -2,6 +2,8 @@
 
 So far, a little json parser and website for the CIA World Factbook found at https://github.com/factbook/factbook.json.
 
+## Processing in psql
+
 Scraping  
 ```bash
 for region in africa antarctica australia-oceania central-america-n-caribbean central-asia east-n-southeast-asia europe meta middle-east north-america oceans south-america south-asia world; do
