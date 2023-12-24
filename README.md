@@ -1,8 +1,104 @@
 # factbook
 
-So far, a little json parser and website for the CIA World Factbook found at https://github.com/factbook/factbook.json.
+A little json parser and website for the CIA World Factbook found at https://github.com/factbook/factbook.json.
 
-## Processing in psql
+## Using JS
+
+```js
+function fetchData() {
+
+var random = Math.floor(Math.random() * files.length);
+var file = files[random];
+var jsonFileUrl = 'https://raw.githubusercontent.com/factbook/factbook.json/master/'+file;
+var countryCode = file.substring(file.indexOf('/') + 1, file.indexOf('.'));
+var countryName = Object.keys(codes).find(key => codes[key] === countryCode.toUpperCase()) || countryCode.toUpperCase();
+
+return fetch(jsonFileUrl)
+.then(response => response.json())
+.then(jsonObject => {
+
+// random key
+function getAllKeys(obj) {
+let keys = [];
+for (let key in obj) {
+if (typeof obj[key] === 'object') {
+keys = keys.concat(getAllKeys(obj[key]).map(subKey => `${key}.${subKey}`));
+} else {
+keys.push(key);
+}
+}
+return keys;
+}
+
+// find matching keys
+function getKeysAndValuesWithSameFirstTwoParts(obj, selectedKey) {
+// Split the selected key by '.'
+const keyParts = selectedKey.split('.');
+
+// Extract the first and second parts
+const [firstPart, secondPart] = keyParts;
+
+// Find all keys and values with the same first and second parts
+const matchingKeysAndValues = getAllKeys(obj)
+.filter(key => {
+const parts = key.split('.');
+return parts.length >= 2 && parts[0] === firstPart && parts[1] === secondPart;
+})
+.map(key => ({
+key,
+value: key.split('.').reduce((acc, key) => acc[key], obj)
+}));
+
+return matchingKeysAndValues;
+}
+
+// Get all keys of the JSON object, including nested keys
+const allKeys = getAllKeys(jsonObject);
+// Define a wildcard pattern to exclude specific keys (replace with your pattern)
+const excludeWildcard = /note/;
+// Get all keys of the JSON object, excluding keys with the specified wildcard
+const filteredKeys = getAllKeys(jsonObject, excludeWildcard);
+// Select a random key
+const randomKey = filteredKeys[Math.floor(Math.random() * filteredKeys.length)];
+// find matching keys
+const matchingKeysAndValues = getKeysAndValuesWithSameFirstTwoParts(jsonObject, randomKey);
+// Split the random key by '.'
+const keyParts = randomKey.split('.');
+
+// start div
+const div = document.createElement('div');
+resultContainer.appendChild(div);
+div.classList.add(`flex-column`);
+
+// Add title
+contentToAppend = `<div class="part-1" style="margin:5px">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1">${keyParts[1]} ~ ${countryName}</div>`;
+div.innerHTML += contentToAppend;
+
+counterValue += 1;
+
+// Add content
+matchingKeysAndValues.forEach((item) => {
+const itemParts = item.key.split('.');
+const remainingParts = itemParts.slice(2).join('.');
+if (remainingParts !== 'text') {
+contentToAppend = `<p style="font-size:12px; font-weight:600; margin-top:5px;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
+div.innerHTML += contentToAppend;
+} else {
+contentToAppend = `<p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
+div.innerHTML += contentToAppend;
+}
+});
+div.innerHTML += `<hr>`;
+
+})} <!-- end fetch function -->
+
+const numberOfFetches = 10;
+for (let i = 0; i < numberOfFetches; i++) {
+fetchData();
+}
+```
+
+## Using psql
 
 Scraping  
 ```bash
