@@ -43,7 +43,7 @@ var file = files[random];
 var jsonFileUrl = 'https://raw.githubusercontent.com/factbook/factbook.json/master/'+file;
 var countryCode = file.substring(file.indexOf('/') + 1, file.indexOf('.'));
 var countryName = Object.keys(codes).find(key => codes[key] === countryCode.toUpperCase()) || countryCode.toUpperCase();
-
+console.log(countryCode.toUpperCase())
 return fetch(jsonFileUrl)
 .then(response => response.json())
 .then(jsonObject => {
