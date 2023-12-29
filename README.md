@@ -103,7 +103,7 @@ fetchData();
 Scraping  
 ```bash
 for region in africa antarctica australia-oceania central-america-n-caribbean central-asia east-n-southeast-asia europe meta middle-east north-america oceans south-america south-asia world; do
-  curl https://github.com/factbook/factbook.json/tree/master/${region} | sed -e 's/{/\n{/g' | grep '"contentType":"file"' | grep '.json' | grep -v 'package.json' | grep -v 'categories' | sed -e 's/^.*path":"/https:\/\/github\.com\/factbook\/factbook\.json\/tree\/master\//g' -e 's/".*$//g' | while read url; do
+  curl https://github.com/factbook/factbook.json/tree/master/${region} | sed -e 's/{/\n{/g' | grep '"contentType":"file"' | grep '.json' | grep -v 'package.json' | grep -v 'categories' | sed -e 's/^.*path":"/https:\/\/raw\.githubusercontent\.com\/factbook\/factbook\.json\/master\//g' -e 's/".*$//g' | while read url; do
     wget ${url}; sleep $[ ( $RANDOM % 10 )  + 1 ]s
     echo $url
   done
