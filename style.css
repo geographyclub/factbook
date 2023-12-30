@@ -116,7 +116,7 @@ box-sizing: border-box;
 .image-container {
 display: flex;
 position: relative;
-height: 50px;
+height: 100%;
 width: 100%;
 max-width: 768px;
 margin: 0 auto;
@@ -127,7 +127,7 @@ overflow: hidden;
 
 .image {
 display: block;
-width: 100%;
+width: 25%;
 height: auto;
 display: block;
 max-height: 100%;
