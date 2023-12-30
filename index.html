@@ -51,8 +51,8 @@ return fetch(jsonFileUrl)
 // get file contents
 const geographicCoordinatesText = jsonObject.Geography?.['Geographic coordinates']?.text;
 
-// get svg
-imgUrl='https://raw.githubusercontent.com/geographyclub/svgeo/main/svg/fips/'+countryCode+'.svg';
+// get image
+imgUrl='https://raw.githubusercontent.com/geographyclub/factbook/img/fips/'+countryCode+'.png';
 
 // random key
 function getAllKeys(obj) {
@@ -106,6 +106,9 @@ const keyParts = randomKey.split('.');
 const div = document.createElement('div');
 resultContainer.appendChild(div);
 div.classList.add(`flex-column`);
+if (counterValue !== 1) {
+  div.innerHTML += `<hr>`;
+}
 
 // Add title
 contentToAppend = `<div class="image-container"><img class="image" src="${imgUrl}"></div><div class="part-1" style="margin:5px">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1">${keyParts[1]} ~ ${countryName}</div>`;
@@ -125,7 +128,6 @@ matchingKeysAndValues.forEach((item) => {
     div.innerHTML += contentToAppend;
   }
 });
-div.innerHTML += `<hr>`;
 
 })} <!-- end fetch function -->
 
