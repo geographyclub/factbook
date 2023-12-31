@@ -106,9 +106,10 @@ const keyParts = randomKey.split('.');
 const div = document.createElement('div');
 resultContainer.appendChild(div);
 div.classList.add(`flex-column`);
-if (counterValue !== 1) {
-  div.innerHTML += `<hr>`;
-}
+
+//if (counterValue !== 1) {
+//  div.innerHTML += `<hr>`;
+//}
 
 // Add title
 contentToAppend = `<img class="image" src="${imgUrl}"></div><div class="part-1">${counterValue}</div><div class="part-2">${keyParts[0]}</div><div class="part-1">${keyParts[1]} ~ ${countryName}</div>`;
