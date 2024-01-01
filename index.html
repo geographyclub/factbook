@@ -43,6 +43,7 @@ var file = files[random];
 var jsonFileUrl = 'https://raw.githubusercontent.com/factbook/factbook.json/master/'+file;
 var countryCode = file.substring(file.indexOf('/') + 1, file.indexOf('.'));
 var countryName = Object.keys(codes).find(key => codes[key] === countryCode.toUpperCase()) || countryCode.toUpperCase();
+var imgUrl='img/fips/'+countryCode+'.png';
 
 return fetch(jsonFileUrl)
 .then(response => response.json())
@@ -130,9 +131,7 @@ matchingKeysAndValues.forEach((item) => {
 });
 
 // add footer
-imgUrl='img/fips/'+countryCode+'.png';
-
-contentToAppend = `<img class="image" src="${imgUrl}"></div><div class="part-3">${geographicCoordinatesText}</div><div class="part-3"><span>${locationText}</span> <span style="font-style:italic">${comparisonText}</span></div>`;
+contentToAppend = `<img class="image" src="${imgUrl}"></div><div class="part-3" style="font-weight:600">${geographicCoordinatesText}</div><div class="part-3"><span>${locationText}</span> <span style="font-style:italic">${comparisonText}</span></div>`;
 div.innerHTML += contentToAppend;
 
 })} <!-- end fetch function -->
