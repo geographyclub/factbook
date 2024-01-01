@@ -51,9 +51,6 @@ return fetch(jsonFileUrl)
 // get file contents
 const geographicCoordinatesText = jsonObject.Geography?.['Geographic coordinates']?.text;
 
-// get image
-imgUrl='img/fips/'+countryCode+'.png';
-
 // random key
 function getAllKeys(obj) {
     let keys = [];
@@ -107,12 +104,12 @@ const div = document.createElement('div');
 resultContainer.appendChild(div);
 div.classList.add(`flex-column`);
 
-//if (counterValue !== 1) {
-//  div.innerHTML += `<hr>`;
-//}
+if (counterValue !== 1) {
+  div.innerHTML += `<hr>`;
+}
 
 // Add title
-contentToAppend = `<img class="image" src="${imgUrl}"></div><div class="part-1">${counterValue}</div><div class="part-2">${keyParts[0]}</div><div class="part-1" style="margin-bottom:20px;">${keyParts[1]} ~ ${countryName}</div>`;
+contentToAppend = `<div class="part-1">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1" style="">${keyParts[1]} ~ ${countryName}</div>`;
 div.innerHTML += contentToAppend;
 
 counterValue += 1;
