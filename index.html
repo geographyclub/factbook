@@ -50,7 +50,7 @@ return fetch(jsonFileUrl)
 .then(jsonObject => {
 
 // get file contents
-const geographicCoordinatesText = jsonObject.Geography?.['Geographic coordinates']?.text;
+const geographicCoordinatesText = jsonObject.Geography?.['Geographic coordinates']?.text.replace(/<[^>]*>/g, '');
 const locationText = jsonObject.Geography?.['Location']?.text;
 const comparisonText = jsonObject.Geography?.['Area - comparative']?.text;
 
