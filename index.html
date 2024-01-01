@@ -90,7 +90,6 @@ function getKeysAndValuesWithSameFirstTwoParts(obj, selectedKey) {
 
 // Get all keys of the JSON object, including nested keys
 const allKeys = getAllKeys(jsonObject);
-console.log(allKeys);
 // Define a wildcard pattern to exclude specific keys (replace with your pattern)
 const excludeWildcard = /note/;
 // Get all keys of the JSON object, excluding keys with the specified wildcard
@@ -112,7 +111,7 @@ if (counterValue !== 1) {
 }
 
 // Add title
-contentToAppend = `<div class="part-1">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1" style="margin-bottom:20px">${keyParts[1]} ~ ${countryName}</div>`;
+contentToAppend = `<div class="part-1">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1" style="margin-bottom:30px">${keyParts[1]} ~ ${countryName}</div>`;
 div.innerHTML += contentToAppend;
 
 counterValue += 1;
