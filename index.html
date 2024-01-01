@@ -51,8 +51,8 @@ return fetch(jsonFileUrl)
 
 // get file contents
 const geographicCoordinatesText = jsonObject.Geography?.['Geographic coordinates']?.text.replace(/<[^>]*>/g, '');
-const locationText = jsonObject.Geography?.['Location']?.text;
-const comparisonText = jsonObject.Geography?.['Area - comparative']?.text;
+const locationText = jsonObject.Geography?.['Location']?.text.replace(/<[^>]*>/g, '');
+const comparisonText = jsonObject.Geography?.['Area - comparative']?.text.replace(/<[^>]*>/g, '');
 
 // random key
 function getAllKeys(obj) {
