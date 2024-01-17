@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,600,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<title>World Factbook</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,600,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>World Factbook</title>
 </head>
 <body>
 
 <header>
-<div><a href="#"><h1 style="font-size:18px;"><span style="font-weight:600">world</span>factbook<span style="font-family:'Pacifico'">scraper</span></h1></a></div>
-<div class="menu-icon">&#9776;</div>
-<nav>
-<a href="#" onclick="closeMenu()">Home</a>
-<a href="https://github.com/geographyclub/factbook" target="_blank">Github Repo</a>
-<!--<a href="#" onclick="scrollToSection('Brunei');">Brunei</a>-->
-</nav>
+  <div><a href="#"><h1 style="font-size:18px;"><span style="font-weight:600">world</span>factbook<span style="font-family:'Pacifico'">scraper</span></h1></a></div>
+  <div class="menu-icon">&#9776;</div>
+  <nav>
+    <a href="#" onclick="closeMenu()">Home</a>
+    <a href="https://github.com/geographyclub/factbook" target="_blank">Github Repo</a>
+    <!--<a href="#" onclick="scrollToSection('Brunei');">Brunei</a>-->
+  </nav>
 </header>
 
 <div class="container">
-  <div class="flex-container"><div class="flex-column-wide color-gradient" style="padding:10px 0"><h1 style="font-size:20px; line-height:0.8; letter-spacing:-1px;"><span style="font-size:60px; line-height:0.2">10</span><br>Random<br>Facts From The<br><a href="https://www.cia.gov/the-world-factbook/" target="_blank">CIA World Factbook</a></h1><h1 style="font-size:14px; line-height:1; letter-spacing:-1px; padding-top:5px; text-align:right; width:90%;">Repository on <a href="https://github.com/geographyclub/factbook" target="_blank">GitHub</a></h1></div></div>
+  <div class="flex-container">
+    <div class="flex-column-wide color-gradient" style="padding:10px 0">
+      <h1 style="font-size:20px; line-height:0.8; letter-spacing:-1px;">
+        <span style="font-size:60px; line-height:0.2">10</span><br>Random<br>Facts From The<br>
+        <a href="https://www.cia.gov/the-world-factbook/" target="_blank">CIA World Factbook</a>
+      </h1>
+      <h1 style="font-size:14px; line-height:1; letter-spacing:-1px; padding-top:5px; text-align:right; width:90%;">
+        Repository on <a href="https://github.com/geographyclub/factbook" target="_blank">GitHub</a>
+      </h1>
+    </div>
+  </div>
   <div class="flex-container" id="resultContainer"></div>
 </div>
-
-<!--<div class="border-container"><div class="color-block"></div><div class="color-block"></div><div class="color-block"></div></div>-->
 
 <script>
 const files = ["africa/ag.json","africa/ao.json","africa/bc.json","africa/bn.json","africa/by.json","africa/cd.json","africa/cf.json","africa/cg.json","africa/cm.json","africa/cn.json","africa/ct.json","africa/cv.json","africa/dj.json","africa/eg.json","africa/ek.json","africa/er.json","africa/et.json","africa/ga.json","africa/gb.json","africa/gh.json","africa/gv.json","africa/iv.json","africa/ke.json","africa/li.json","africa/lt.json","africa/ly.json","africa/ma.json","africa/mi.json","africa/ml.json","africa/mo.json","africa/mp.json","africa/mr.json","africa/mz.json","africa/ng.json","africa/ni.json","africa/od.json","africa/pu.json","africa/rw.json","africa/se.json","africa/sf.json","africa/sg.json","africa/sh.json","africa/sl.json","africa/so.json","africa/su.json","africa/to.json","africa/tp.json","africa/ts.json","africa/tz.json","africa/ug.json","africa/uv.json","africa/wa.json","africa/wi.json","africa/wz.json","africa/za.json","africa/zi.json","antarctica/ay.json","antarctica/bv.json","antarctica/fs.json","antarctica/hm.json","australia-oceania/aq.json","australia-oceania/as.json","australia-oceania/at.json","australia-oceania/bp.json","australia-oceania/ck.json","australia-oceania/cq.json","australia-oceania/cr.json","australia-oceania/cw.json","australia-oceania/fj.json","australia-oceania/fm.json","australia-oceania/fp.json","australia-oceania/gq.json","australia-oceania/kr.json","australia-oceania/kt.json","australia-oceania/nc.json","australia-oceania/ne.json","australia-oceania/nf.json","australia-oceania/nh.json","australia-oceania/nr.json","australia-oceania/nz.json","australia-oceania/pc.json","australia-oceania/ps.json","australia-oceania/rm.json","australia-oceania/tl.json","australia-oceania/tn.json","australia-oceania/tv.json","australia-oceania/um.json","australia-oceania/wf.json","australia-oceania/wq.json","australia-oceania/ws.json","central-america-n-caribbean/aa.json","central-america-n-caribbean/ac.json","central-america-n-caribbean/av.json","central-america-n-caribbean/bb.json","central-america-n-caribbean/bf.json","central-america-n-caribbean/bh.json","central-america-n-caribbean/bq.json","central-america-n-caribbean/cj.json","central-america-n-caribbean/cs.json","central-america-n-caribbean/cu.json","central-america-n-caribbean/do.json","central-america-n-caribbean/dr.json","central-america-n-caribbean/es.json","central-america-n-caribbean/gj.json","central-america-n-caribbean/gt.json","central-america-n-caribbean/ha.json","central-america-n-caribbean/ho.json","central-america-n-caribbean/jm.json","central-america-n-caribbean/mh.json","central-america-n-caribbean/nn.json","central-america-n-caribbean/nu.json","central-america-n-caribbean/pm.json","central-america-n-caribbean/rn.json","central-america-n-caribbean/rq.json","central-america-n-caribbean/sc.json","central-america-n-caribbean/st.json","central-america-n-caribbean/tb.json","central-america-n-caribbean/td.json","central-america-n-caribbean/tk.json","central-america-n-caribbean/uc.json","central-america-n-caribbean/vc.json","central-america-n-caribbean/vi.json","central-america-n-caribbean/vq.json","central-asia/kg.json","central-asia/kz.json","central-asia/rs.json","central-asia/ti.json","central-asia/tx.json","central-asia/uz.json","east-n-southeast-asia/bm.json","east-n-southeast-asia/bx.json","east-n-southeast-asia/cb.json","east-n-southeast-asia/ch.json","east-n-southeast-asia/hk.json","east-n-southeast-asia/id.json","east-n-southeast-asia/ja.json","east-n-southeast-asia/kn.json","east-n-southeast-asia/ks.json","east-n-southeast-asia/la.json","east-n-southeast-asia/mc.json","east-n-southeast-asia/mg.json","east-n-southeast-asia/my.json","east-n-southeast-asia/pf.json","east-n-southeast-asia/pg.json","east-n-southeast-asia/pp.json","east-n-southeast-asia/rp.json","east-n-southeast-asia/sn.json","east-n-southeast-asia/th.json","east-n-southeast-asia/tt.json","east-n-southeast-asia/tw.json","east-n-southeast-asia/vm.json","europe/al.json","europe/an.json","europe/au.json","europe/ax.json","europe/be.json","europe/bk.json","europe/bo.json","europe/bu.json","europe/cy.json","europe/da.json","europe/dx.json","europe/ee.json","europe/ei.json","europe/en.json","europe/ez.json","europe/fi.json","europe/fo.json","europe/fr.json","europe/gi.json","europe/gk.json","europe/gm.json","europe/gr.json","europe/hr.json","europe/hu.json","europe/ic.json","europe/im.json","europe/it.json","europe/je.json","europe/jn.json","europe/kv.json","europe/lg.json","europe/lh.json","europe/lo.json","europe/ls.json","europe/lu.json","europe/md.json","europe/mj.json","europe/mk.json","europe/mn.json","europe/mt.json","europe/nl.json","europe/no.json","europe/pl.json","europe/po.json","europe/ri.json","europe/ro.json","europe/si.json","europe/sm.json","europe/sp.json","europe/sv.json","europe/sw.json","europe/sz.json","europe/uk.json","europe/up.json","europe/vt.json","middle-east/ae.json","middle-east/aj.json","middle-east/am.json","middle-east/ba.json","middle-east/gg.json","middle-east/gz.json","middle-east/ir.json","middle-east/is.json","middle-east/iz.json","middle-east/jo.json","middle-east/ku.json","middle-east/le.json","middle-east/mu.json","middle-east/qa.json","middle-east/sa.json","middle-east/sy.json","middle-east/tu.json","middle-east/we.json","middle-east/ym.json","north-america/bd.json","north-america/ca.json","north-america/gl.json","north-america/ip.json","north-america/mx.json","north-america/sb.json","north-america/us.json","oceans/oo.json","oceans/xo.json","oceans/xq.json","oceans/zh.json","oceans/zn.json","south-america/ar.json","south-america/bl.json","south-america/br.json","south-america/ci.json","south-america/co.json","south-america/ec.json","south-america/fk.json","south-america/gy.json","south-america/ns.json","south-america/pa.json","south-america/pe.json","south-america/sx.json","south-america/uy.json","south-america/ve.json","south-asia/af.json","south-asia/bg.json","south-asia/bt.json","south-asia/ce.json","south-asia/in.json","south-asia/io.json","south-asia/mv.json","south-asia/np.json","south-asia/pk.json","world/xx.json"]
