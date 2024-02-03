@@ -23,13 +23,10 @@
 
 <div class="container">
   <div class="flex-container">
-    <div class="flex-column-wide color-gradient" style="padding:10px 0">
+    <div class="flex-column-wide color-gradient" style="padding:30px 0">
       <h1 style="font-size:20px; line-height:0.8; letter-spacing:-1px;">
         <span style="font-size:60px; line-height:0.2">10</span><br>Random<br>Facts From The<br>
         <a href="https://www.cia.gov/the-world-factbook/" target="_blank">CIA World Factbook</a>
-      </h1>
-      <h1 style="font-size:14px; line-height:1; letter-spacing:-1px; padding-top:5px; text-align:right; width:90%;">
-        Repository on <a href="https://github.com/geographyclub/factbook" target="_blank">GitHub</a>
       </h1>
     </div>
   </div>
@@ -45,12 +42,18 @@ let counterValue = 1;
 // Fetch the JSON file
 function fetchData() {
 
-var random = Math.floor(Math.random() * files.length);
-var file = files[random];
-var jsonFileUrl = 'https://raw.githubusercontent.com/factbook/factbook.json/master/'+file;
-var countryCode = file.substring(file.indexOf('/') + 1, file.indexOf('.'));
-var countryName = Object.keys(codes).find(key => codes[key] === countryCode.toUpperCase()) || countryCode.toUpperCase();
-var imgUrl='img/fips/'+countryCode+'.png';
+var random, file, jsonFileUrl, countryCode, countryName, imgUrl;
+
+do {
+  random = Math.floor(Math.random() * files.length);
+  file = files[random];
+  countryCode = file.substring(file.indexOf('/') + 1, file.indexOf('.'));
+  countryName = Object.keys(codes).find(key => codes[key] === countryCode.toUpperCase());
+} while (!countryName);
+
+jsonFileUrl = 'https://raw.githubusercontent.com/factbook/factbook.json/master/' + file;
+imgUrl = 'img/fips/' + countryCode + '.png';
+
 
 return fetch(jsonFileUrl)
 .then(response => response.json())
@@ -114,7 +117,7 @@ const div = document.createElement('div');
 resultContainer.appendChild(div);
 div.classList.add(`flex-column`);
 
-if (counterValue !== 1) {
+if (counterValue !== 1 && !(counterValue === 2 && window.innerWidth > 768)) {
   div.innerHTML += `<hr>`;
 }
 
