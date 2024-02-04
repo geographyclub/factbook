@@ -7,17 +7,20 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>World Factbook</title>
+  <title>World Factbook Scraper</title>
 </head>
 <body>
 
-<header>
-  <div><a href="#"><h1 style="font-size:18px;"><span style="font-weight:600">world</span>factbook<span style="font-family:'Pacifico'">scraper</span></h1></a></div>
+<header class="color-gradient">
+  <div><a href="#"><h1 style="font-size:18px;"><span style="font-weight:600">world</span>factbook<span style="font-family:'Pacifico';">scraper</span></h1></a></div>
   <div class="menu-icon">&#9776;</div>
   <nav>
     <a href="#" onclick="closeMenu()">Home</a>
-    <a href="https://github.com/geographyclub/factbook" target="_blank">Github Repo</a>
-    <!--<a href="#" onclick="scrollToSection('Brunei');">Brunei</a>-->
+    <a href="#" onclick="scrollToSection('about');">About</a>
+    <a href="#" onclick="scrollToSection('contact');">Contact</a>
+    <p>GITHUB</p>
+    <a href="https://github.com/geographyclub/factbook" target="_blank">Code repository</a>
+    <a href="https://github.com/factbook/factbook.json" target="_blank">JSON files</a>
   </nav>
 </header>
 
@@ -26,11 +29,29 @@
     <div class="flex-column-wide color-gradient" style="padding:30px 0">
       <h1 style="font-size:20px; line-height:0.8; letter-spacing:-1px;">
         <span style="font-size:60px; line-height:0.2">10</span><br>Random<br>Facts From The<br>
-        <a href="https://www.cia.gov/the-world-factbook/" target="_blank">CIA World Factbook</a>
+        <a href="https://www.cia.gov/the-world-factbook/" target="_blank" style="color:#fff;">CIA World Factbook</a>
       </h1>
     </div>
   </div>
   <div class="flex-container" id="resultContainer"></div>
+
+<div class="flex-container">
+<div class="flex-column-wide footer color-gradient">
+<p id="about">ABOUT</p>
+<h2><span style="color:green">Web developer</span> and <span style="color:green">map maker</span> with a background in Geography and English.</h2>
+<p id="contact">EMAIL</p>
+<a href="mailto:emailstevekim@gmail.com"><h3>emailstevekim@gmail.com</h3></a>
+<p>TWITTER</p>
+<a href="https://twitter.com/newgeographer2" target="_blank"><h3>@newgeographer2</h3></a>
+<p>GITHUB</p>
+<a href="https://github.com/geographyclub" target="_blank"><h3>geographyclub</h3></a>
+<p>WEBSITES</p>
+<a href="https://geographyclub.github.io/factbook/" onclick="closeMenu()" target="_blank"><h3>World Factbook Scraper</h3></a>
+<a href="https://geographyclub.github.io/american-geography/" onclick="closeMenu()" target="_blank"><h3>American Geography</h3></a>
+<a href="https://geographyclub.github.io/asean/" onclick="closeMenu()" target="_blank"><h3>Asean Primer</h3></a>
+</div>
+</div>
+
 </div>
 
 <script>
