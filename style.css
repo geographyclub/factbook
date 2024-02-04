@@ -22,21 +22,20 @@ header {display:flex; justify-content:space-between; align-items:center; backgro
 .text-overlay-bottom-left {position:absolute; bottom:0%; left:0%; transform:translate(0%, 0%); color:#fff; text-align:left; background:rgba(0, 0, 0, 0); padding:0; box-sizing:border-box; z-index:2;}
 .text-overlay-top-right {position:absolute; top:0%; right:0%; transform:translate(0%, 0%); color:#fff; text-align:right; background:rgba(0, 0, 0, 0); padding:0; box-sizing:border-box; z-index:2;}
 .tag-overlay {position:absolute; top:0%; left:100%; transform:translate(-100%, 0%); color:#333; text-align:right; background:rgba(255, 255, 0, 1); padding:0 3px; box-sizing:border-box; z-index:3;}
-.color-gradient {background:linear-gradient(to right, #ff7e5f, #feb47b);}
-.color-overlay {position:absolute; top:0%; left:100%; width:100%; height:100%; mix-blend-mode:multiply; z-index:1; background:linear-gradient(to right, #ff7e5f, #feb47b);}
+.color-gradient {background:linear-gradient(to left, #ff7e5f, #feb47b);}
 .text-background-blue {display:inline-block; background-color:rgba(52, 152, 219, 1); color:fff; margin:5px 0; padding:5px;}
 .text-background-yellow {display:inline-block; background-color:rgba(255, 255, 0, 1); margin:2px 0; padding:2px 5px;}
 .text-background-black {display:inline-block; background-color:rgba(0, 0, 0, 1); color:#fff; margin:5px 0; padding:5px;}
 .text-background-gray {display:inline-block; background-color:#ccc; color:#fff; margin:5px 0; padding:2px 5px;}
 
-nav {display:none; flex-direction:column; align-items:flex-start; width:100%; background:linear-gradient(to right, #ff7e5f, #feb47b); position:absolute; right:0; top:50px; padding:0 0 10px 0;}
+nav {display:none; flex-direction:column; align-items:flex-start; width:100%; background:linear-gradient(to left, #ff7e5f, #feb47b); position:absolute; right:0; top:50px; padding:0 0 10px 0;}
 nav.show {display:flex;}
 nav a {color:#333; text-decoration:none; margin:5px 10px;}
 nav p {font-size:10px; color:#333; text-decoration:none; margin:5px 10px;}
 .menu-icon {display:block; cursor:pointer; font-size:24px; position:fixed; right:10px;}
 
 @media only screen and (max-width: 768px) {
-  nav {display:none; flex-direction:column; align-items:flex-start; width:100%; background:linear-gradient(to right, #ff7e5f, #feb47b); position:absolute; right:0; top:50px;}
+  nav {display:none; flex-direction:column; align-items:flex-start; width:100%; background:linear-gradient(to left, #ff7e5f, #feb47b); position:absolute; right:0; top:50px;}
   nav.show {display:flex;}
   .flex-column {flex:0 0 100%;}
 }
