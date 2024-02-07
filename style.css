@@ -56,6 +56,6 @@ nav p {font-size:10px; color:#333; text-decoration:none; margin:5px 10px;}
 
 .footer {color:#000; max-width:1920px; background-size:cover; padding:20px 20px 50px 20px; margin-top:30px; text-align:left;}
 .footer a{color:#000; text-decoration:underline;}
-.footer h2{font-size:20px; line-height:1.2;}
-.footer h3{font-size:18px; line-height:1.2;}
+.footer h2{font-size:18px; line-height:1.2;}
+.footer h3{font-size:16px; line-height:1.4;}
 .footer p{font-size:12px; padding-top:10px; }
