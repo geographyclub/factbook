@@ -153,7 +153,7 @@ matchingKeysAndValues.forEach((item) => {
   const itemParts = item.key.split('.');
   const remainingParts = itemParts.slice(2).join('.');
   if (remainingParts !== 'text') {
-    contentToAppend = `<p style="font-size:9px; font-weight:600; margin-top:5px; text-transform:uppercase;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
+    contentToAppend = `<p style="font-size:10px; font-weight:600; margin-top:5px; text-transform:uppercase;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
     div.innerHTML += contentToAppend;
   } else {
     contentToAppend = `<p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
