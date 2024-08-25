@@ -138,7 +138,7 @@ if (counterValue !== 1 && !(counterValue === 2 && window.innerWidth > 768)) {
 }
 
 // Add title
-contentToAppend = `<div class="part-1">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1" style="margin-bottom:20px">${keyParts[1]} ~ ${countryName}</div>`;
+contentToAppend = `<div class="part-1">${counterValue}.</div><div class="part-2">${keyParts[0]}</div><div class="part-1" style="margin-bottom:40px">${keyParts[1]} ~ ${countryName}</div>`;
 div.innerHTML += contentToAppend;
 
 counterValue += 1;
@@ -148,10 +148,10 @@ matchingKeysAndValues.forEach((item) => {
   const itemParts = item.key.split('.');
   const remainingParts = itemParts.slice(2).join('.');
   if (remainingParts !== 'text') {
-    contentToAppend = `<p style="font-size:10px; font-weight:600; margin-top:5px; text-transform:uppercase;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
+    contentToAppend = `<p style="font-size:10px; font-weight:600; margin-top:5px; text-transform:uppercase;">${remainingParts.replace(/text/g, '').replace(/\./g, '')}</p><p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '').replace(/<b>note:\s*<\/b>/g, '').replace(/<b>note\s*<\/b>:/g, '')}</p>`;
     div.innerHTML += contentToAppend;
   } else {
-    contentToAppend = `<p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '')}</p>`;
+    contentToAppend = `<p>${item.value.replace(/<strong>note:\s*<\/strong>/g, '').replace(/<strong>note\s*<\/strong>:/g, '').replace(/<b>note:\s*<\/b>/g, '').replace(/<b>note\s*<\/b>:/g, '')}</p>`;
     div.innerHTML += contentToAppend;
   }
 });
